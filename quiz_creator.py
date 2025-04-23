@@ -11,7 +11,7 @@ file_path = os.path.join(downloads_folder, quiz_number) #Joining both of them to
 if os.path.exists(file_path): #To check if the file is there or not
     print(f"{quiz_number}" + " will be opened")
     with open(file_path, "a") as file: #Opens the file and it uses 'a' for it doesn't remove previous texts in the file
-        i = 0 
+        number = 0 
 
         right_answers_list = [] #To store the right answers
 
@@ -39,23 +39,23 @@ if os.path.exists(file_path): #To check if the file is there or not
             right_answer = input("Input the right answer Ex.(A): ").lower() #Used lower() to make sure that the letter is always the same
             right_answers_list.append(right_answer) #To store to the list
 
-            file.write(f"Question {i + 1}: {question} \n") #Print the input of the user in the text file
+            file.write(f"Question {number + 1}: {question} \n") #Print the input of the user in the text file
             file.write(f"A: {option_a}\nB: {option_b}\nC: {option_c}\nD: {option_d}\n")
             file.write(f"\n \n Right Answer: {right_answer} \n")
 
-            i += 1 #To change the question number
+            number += 1 #To change the question number
 
 else:
     print(f"{quiz_number}" + " does not exist")
     print("creating the file...")
     with open(file_path, "w") as file: #Opens the file and using "w", it is the 'write' mode to put texts in the txt file
         
-        i = 0 
+        number = 0 
 
         right_answers_list = [] #To store the right answers
 
         while True: #To make it a loop so that the user can put how much questions they want in the file
-            question = str(input(f"Please input the Question no.{i + 1}, if done, type 'exit': ")) #Ask the user to input their question 
+            question = str(input(f"Please input the Question no.{number + 1}, if done, type 'exit': ")) #Ask the user to input their question 
 
             if question.lower() == "exit": #If the user inputs "exit", make the program break and update the file with the new inputs of the user
                 file.write(f"List of right answers: {right_answers_list}") #To write the list after the user exits
@@ -78,8 +78,8 @@ else:
             right_answer = input("Input the right answer Ex.(A): ").lower() #Used lower() to make sure that the letter is always the same
             right_answers_list.append(right_answer) #To store to the list
 
-            file.write(f"Question {i + 1}: {question} \n") #Print the input of the user in the text file
+            file.write(f"Question {number + 1}: {question} \n") #Print the input of the user in the text file
             file.write(f"A: {option_a}\nB: {option_b}\nC: {option_c}\nD: {option_d}\n")
             file.write(f"\n \n Right Answer: {right_answer} \n")
 
-            i += 1 #To change the question number
+            number += 1 #To change the question number

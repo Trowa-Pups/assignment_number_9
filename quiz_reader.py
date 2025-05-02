@@ -41,5 +41,8 @@ for line in file_lines:
 quiz_data = list(zip(question_list, right_answer_list)) #Using list(zip()) to correctly pair the question and answer and put it on a lis
 random.shuffle(quiz_data)
 
-print(quiz_data) #To test
+for question_number, (question, correct_answer) in enumerate(quiz_data): #Using enumerate to get the question number and get the question and correct answer from quiz_data
+    print(f"Question no.({question_number + 1}):") #To test
+    print(question) #To test
+    print(correct_answer) #To test
 #Evaluate the user's answers and give a score

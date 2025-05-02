@@ -11,4 +11,10 @@ downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
 file_path = os.path.join(downloads_folder, quiz_number) 
 
 #Make the user answer the quiz
+if os.path.exists(file_path): #To check if the file is there or not
+    print("Reading file...")
+    with open(file_path, "r") as file: #Opens the files and reads it with "r"
+        file_lines = file.readlines()
+
+
 #Evaluate the user's answers and give a score

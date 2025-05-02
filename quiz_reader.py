@@ -16,6 +16,8 @@ if os.path.exists(file_path): #To check if the file is there or not
     with open(file_path, "r") as file: #Opens the files and reads it with "r"
         file_lines = file.readlines()
 
+right_answer_list = [] #To store the right/correct answers in the quiz
+
 #To seperate the lines in the file into seperate lines
 for line in file_lines: 
     line = line.strip() 
@@ -26,4 +28,10 @@ for line in file_lines:
     elif line.startswith("A:") or line.startswith("B:") or line.startswith("C:") or line.startswith("D:"): #To check if the line are the answers
         print(line)
 
+    elif line.startswith("Right Answer"): #To check if the line is the correct answer in the current question
+        line = line.replace("Right Answer: ", "") #Removes the "Right Answer: " to make the answer remain 
+        print(line)
+        right_answer_list.append(line) #To store the answer in the list
+        print(right_answer_list) 
+        
 #Evaluate the user's answers and give a score

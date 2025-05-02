@@ -41,8 +41,21 @@ for line in file_lines:
 quiz_data = list(zip(question_list, right_answer_list)) #Using list(zip()) to correctly pair the question and answer and put it on a lis
 random.shuffle(quiz_data)
 
+print("Welcome to " + quiz_number + "! \n Answer the quiz by inputting letters like (A, B, C, and D):")
+
+user_score = 0 #The score of the user
+
 for question_number, (question, correct_answer) in enumerate(quiz_data): #Using enumerate to get the question number and get the question and correct answer from quiz_data
     print(f"Question no.({question_number + 1}):") #To test
-    print(question) #To test
-    print(correct_answer) #To test
+    print(question) 
+    
+    user_answer = input("Please input your answer(Ex: A): ").lower() #Ask the user to answer the question and use lower() to make it the same case as the correct answers
+
+    if user_answer == correct_answer:
+        print("You are correct!")
+        user_score += 1
+    
+    else:
+        print("You are wrong! :(")
+
 #Evaluate the user's answers and give a score

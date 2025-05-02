@@ -16,5 +16,5 @@ if os.path.exists(file_path): #To check if the file is there or not
     with open(file_path, "r") as file: #Opens the files and reads it with "r"
         file_lines = file.readlines()
 
-
+print(file_lines)
 #Evaluate the user's answers and give a score

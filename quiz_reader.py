@@ -17,21 +17,24 @@ if os.path.exists(file_path): #To check if the file is there or not
         file_lines = file.readlines()
 
 right_answer_list = [] #To store the right/correct answers in the quiz
+question_list = [] #To store the questions to randomize later
+temporary = "" #To temporary store the entire question
 
 #To seperate the lines in the file into seperate lines
 for line in file_lines: 
     line = line.strip() 
 
     if line.startswith("Question"): #To check if the line is the question
-        print(line)
+        temporary += line + "\n" #To store the line in the temporary storage
     
     elif line.startswith("A:") or line.startswith("B:") or line.startswith("C:") or line.startswith("D:"): #To check if the line are the answers
-        print(line)
+        temporary += line + "\n" #To store the line in the temporary storage
 
     elif line.startswith("Right Answer"): #To check if the line is the correct answer in the current question
         line = line.replace("Right Answer: ", "") #Removes the "Right Answer: " to make the answer remain 
-        print(line)
         right_answer_list.append(line) #To store the answer in the list
-        print(right_answer_list) 
-        
+        question_list.append(temporary) #To store the question in the list
+        temporary = "" #To reset the temporary
+        print(question_list) #To check if it works
+
 #Evaluate the user's answers and give a score

@@ -19,7 +19,6 @@ if os.path.exists(file_path): #To check if the file is there or not
             question = str(input(f"Please input the new question, if done, type 'exit': ")) #Ask the user to input their question 
 
             if question.lower() == "exit": #If the user inputs "exit", make the program break and update the file with the new inputs of the user
-                file.write(f"List of right answers: {right_answers_list}") #To write the list after the user exits
                 print("Exiting...")
                 break
 
@@ -32,12 +31,10 @@ if os.path.exists(file_path): #To check if the file is there or not
             if option_a == option_b or option_a == option_c or option_a == option_d or option_b == option_c or option_b == option_d or option_c == option_d:
                 same_answer_detector = str(input("Same answer detected! Do you want to continue? Yes/No: "))
                 if same_answer_detector.lower() == "no":
-                    file.write(f"List of right answers: {right_answers_list}") #To write the list after the user exits
                     print("Exiting...")
                     break
                 
             right_answer = input("Input the right answer Ex.(A): ").lower() #Used lower() to make sure that the letter is always the same
-            right_answers_list.append(right_answer) #To store to the list
 
             file.write(f"Question {current_number + 1}: {question} \n") #Print the input of the user in the text file
             file.write(f"A: {option_a}\nB: {option_b}\nC: {option_c}\nD: {option_d}\n")
@@ -58,7 +55,6 @@ else:
             question = str(input(f"Please input the Question no.{current_number + 1}, if done, type 'exit': ")) #Ask the user to input their question 
 
             if question.lower() == "exit": #If the user inputs "exit", make the program break and update the file with the new inputs of the user
-                file.write(f"List of right answers: {right_answers_list}") #To write the list after the user exits
                 print("Exiting...")
                 break
 
@@ -71,12 +67,10 @@ else:
             if option_a == option_b or option_a == option_c or option_a == option_d or option_b == option_c or option_b == option_d or option_c == option_d:
                 same_answer_detector = str(input("Same answer detected! Do you want to continue? Yes/No: "))
                 if same_answer_detector.lower() == "no":
-                    file.write(f"List of right answers: {right_answers_list}") #To write the list after the user exits
                     print("Exiting...")
                     break
                 
             right_answer = input("Input the right answer Ex.(A): ").lower() #Used lower() to make sure that the letter is always the same
-            right_answers_list.append(right_answer) #To store to the list
 
             file.write(f"Question {current_number + 1}: {question} \n") #Print the input of the user in the text file
             file.write(f"A: {option_a}\nB: {option_b}\nC: {option_c}\nD: {option_d}\n")

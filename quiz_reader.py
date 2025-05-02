@@ -1,6 +1,7 @@
 #Import or make a program that reads the files that "quiz_creator.py" created
 import os #Still using os for I am more familiar in it
 import colorama #Importing it because i seen it in my yt feed and i thought i could use it to satisfy the "astig" factor
+import random #Importing it because i need it to randomize the questions 
 
 #Ask the user to input what quiz number they want to read
 #Importing this section from my quiz creator
@@ -35,6 +36,10 @@ for line in file_lines:
         right_answer_list.append(line) #To store the answer in the list
         question_list.append(temporary) #To store the question in the list
         temporary = "" #To reset the temporary
-        print(question_list) #To check if it works
+        
 
+quiz_data = list(zip(question_list, right_answer_list)) #Using list(zip()) to correctly pair the question and answer and put it on a lis
+random.shuffle(quiz_data)
+
+print(quiz_data) #To test
 #Evaluate the user's answers and give a score

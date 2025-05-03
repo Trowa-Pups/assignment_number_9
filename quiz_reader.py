@@ -46,16 +46,24 @@ print("Welcome to " + quiz_number + "! \n Answer the quiz by inputting letters l
 user_score = 0 #The score of the user
 
 for question_number, (question, correct_answer) in enumerate(quiz_data): #Using enumerate to get the question number and get the question and correct answer from quiz_data
-    print(f"Question no.({question_number + 1}):") #To test
+    print(f"Question no.({question_number + 1}):") #To print the question to the terminal
     print(question) 
     
     user_answer = input("Please input your answer(Ex: A): ").lower() #Ask the user to answer the question and use lower() to make it the same case as the correct answers
 
-    if user_answer == correct_answer:
+#Evaluate the user's answers and give a score
+    if user_answer == correct_answer: #To check
         print("You are correct!")
-        user_score += 1
+        user_score += 1 #To add one point in the user's score
     
     else:
         print("You are wrong! :(")
 
-#Evaluate the user's answers and give a score
+if user_score == len(quiz_data): #Using len() to count the amount of things in the list(quiz_data) and seeing if user_score is equal to it
+    print("You got a perfect score! Congratulations!" + user_score + "/" + len(quiz_data))
+
+elif user_score >= len(quiz_data)// 2: #To see if score is equal or greater than half of the quiz
+    print("Nice try! Better luck next time!" + user_score + "/" + len(quiz_data))
+
+else: #If the score is less than half
+    print("You tried your best! Keep studying!"+ user_score + "/" + len(quiz_data))

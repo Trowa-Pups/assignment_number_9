@@ -22,23 +22,23 @@ if os.path.exists(file_path): #To check if the file is there or not
 
 right_answer_list = [] #To store the right/correct answers in the quiz
 question_list = [] #To store the questions to randomize later
-temporary = "" #To temporary store the entire question
+temporary_storage = "" #To temporary store the entire question
 
 #To seperate the lines in the file into seperate lines
 for line in file_lines: 
     line = line.strip() 
 
     if line.startswith("Question"): #To check if the line is the question
-        temporary += line + "\n" #To store the line in the temporary storage
+        temporary_storage += line + "\n" #To store the line in the temporary storage
     
     elif line.startswith("A:") or line.startswith("B:") or line.startswith("C:") or line.startswith("D:"): #To check if the line are the answers
-        temporary += line + "\n" #To store the line in the temporary storage
+        temporary_storage += line + "\n" #To store the line in the temporary storage
 
     elif line.startswith("Right Answer"): #To check if the line is the correct answer in the current question
         line = line.replace("Right Answer: ", "") #Removes the "Right Answer: " to make the answer remain 
         right_answer_list.append(line) #To store the answer in the list
-        question_list.append(temporary) #To store the question in the list
-        temporary = "" #To reset the temporary
+        question_list.append(temporary_storage) #To store the question in the list
+        temporary_storage = "" #To reset the temporary
         
 
 quiz_data = list(zip(question_list, right_answer_list)) #Using list(zip()) to correctly pair the question and answer and put it on a lis

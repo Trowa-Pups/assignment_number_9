@@ -2,6 +2,7 @@
 import os #Still using os for I am more familiar in it
 import colorama #Importing it because i seen it in my yt feed and i thought i could use it to satisfy the "astig" factor
 import random #Importing it because i need it to randomize the questions 
+from colorama import Fore #Imported Fore to change text color
 
 #Ask the user to input what quiz number they want to read
 #Importing this section from my quiz creator
@@ -13,7 +14,7 @@ file_path = os.path.join(downloads_folder, quiz_number)
 
 #Make the user answer the quiz
 if os.path.exists(file_path): #To check if the file is there or not
-    print("Reading file...")
+    print(Fore.BLUE + "Reading file...")
     with open(file_path, "r") as file: #Opens the files and reads it with "r"
         file_lines = file.readlines()
 
@@ -41,29 +42,29 @@ for line in file_lines:
 quiz_data = list(zip(question_list, right_answer_list)) #Using list(zip()) to correctly pair the question and answer and put it on a lis
 random.shuffle(quiz_data)
 
-print("Welcome to " + quiz_number + "! \n Answer the quiz by inputting letters like (A, B, C, and D):")
+print(Fore.GREEN + "Welcome to " + quiz_number + "! \n Answer the quiz by inputting letters like (A, B, C, and D):")
 
 user_score = 0 #The score of the user
 
 for question_number, (question, correct_answer) in enumerate(quiz_data): #Using enumerate to get the question number and get the question and correct answer from quiz_data
-    print(f"Question no.({question_number + 1}):") #To print the question to the terminal
-    print(question) 
+    print(Fore.WHITE + f"Question no.({question_number + 1}):") #To print the question to the terminal
+    print(Fore.WHITE + question) 
     
-    user_answer = input("Please input your answer(Ex: A): ").lower() #Ask the user to answer the question and use lower() to make it the same case as the correct answers
+    user_answer = input(Fore.WHITE + "Please input your answer(Ex: A): ").lower() #Ask the user to answer the question and use lower() to make it the same case as the correct answers
 
 #Evaluate the user's answers and give a score
     if user_answer == correct_answer: #To check
-        print("You are correct!")
+        print(Fore.GREEN + "You are correct!")
         user_score += 1 #To add one point in the user's score
     
     else:
-        print("You are wrong! :(")
+        print(Fore.RED + "You are wrong! :(")
 
 if user_score == len(quiz_data): #Using len() to count the amount of things in the list(quiz_data) and seeing if user_score is equal to it
-    print("You got a perfect score! Congratulations!" , user_score , "/" , len(quiz_data))
+    print(Fore.YELLOW + "You got a perfect score! Congratulations!" , user_score , "/" , len(quiz_data))
 
 elif user_score >= len(quiz_data)// 2: #To see if score is equal or greater than half of the quiz
-    print("Nice try! Better luck next time!" , user_score , "/" , len(quiz_data))
+    print(Fore.YELLOW + "Nice try! Better luck next time!" , user_score , "/" , len(quiz_data))
 
 else: #If the score is less than half
-    print("You tried your best! Keep studying!", user_score , "/" , len(quiz_data))
+    print(Fore.YELLOW + "You tried your best! Keep studying!", user_score , "/" , len(quiz_data))

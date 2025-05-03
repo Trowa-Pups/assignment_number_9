@@ -60,10 +60,10 @@ for question_number, (question, correct_answer) in enumerate(quiz_data): #Using 
         print("You are wrong! :(")
 
 if user_score == len(quiz_data): #Using len() to count the amount of things in the list(quiz_data) and seeing if user_score is equal to it
-    print("You got a perfect score! Congratulations!" + user_score + "/" + len(quiz_data))
+    print("You got a perfect score! Congratulations!" , user_score , "/" , len(quiz_data))
 
 elif user_score >= len(quiz_data)// 2: #To see if score is equal or greater than half of the quiz
-    print("Nice try! Better luck next time!" + user_score + "/" + len(quiz_data))
+    print("Nice try! Better luck next time!" , user_score , "/" , len(quiz_data))
 
 else: #If the score is less than half
-    print("You tried your best! Keep studying!"+ user_score + "/" + len(quiz_data))
+    print("You tried your best! Keep studying!", user_score , "/" , len(quiz_data))

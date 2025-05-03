@@ -42,7 +42,7 @@ for line in file_lines:
 quiz_data = list(zip(question_list, right_answer_list)) #Using list(zip()) to correctly pair the question and answer and put it on a lis
 random.shuffle(quiz_data)
 
-print(Fore.GREEN + "Welcome to " + quiz_number + "! \n Answer the quiz by inputting letters like (A, B, C, and D):")
+print(Fore.GREEN + "🚀  Welcome to " + quiz_number + "! 🚀 \n Answer the quiz by inputting letters like (A, B, C, and D):")
 
 user_score = 0 #The score of the user
 
@@ -54,17 +54,17 @@ for question_number, (question, correct_answer) in enumerate(quiz_data): #Using 
 
 #Evaluate the user's answers and give a score
     if user_answer == correct_answer: #To check
-        print(Fore.GREEN + "You are correct!")
+        print(Fore.GREEN + "You are correct! ✅")
         user_score += 1 #To add one point in the user's score
     
     else:
-        print(Fore.RED + "You are wrong! :(")
+        print(Fore.RED + "You are wrong! ❌")
 
 if user_score == len(quiz_data): #Using len() to count the amount of things in the list(quiz_data) and seeing if user_score is equal to it
-    print(Fore.YELLOW + "You got a perfect score! Congratulations!" , user_score , "/" , len(quiz_data))
+    print(Fore.YELLOW + "You got a perfect score! 💯 Congratulations!" , user_score , "/" , len(quiz_data))
 
 elif user_score >= len(quiz_data)// 2: #To see if score is equal or greater than half of the quiz
-    print(Fore.YELLOW + "Nice try! Better luck next time!" , user_score , "/" , len(quiz_data))
+    print(Fore.YELLOW + "Nice try! ❤ Better luck next time! 🍀" , user_score , "/" , len(quiz_data))
 
 else: #If the score is less than half
-    print(Fore.YELLOW + "You tried your best! Keep studying!", user_score , "/" , len(quiz_data))
+    print(Fore.YELLOW + "You tried your best! Keep studying! 📖", user_score , "/" , len(quiz_data))
